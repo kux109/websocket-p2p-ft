@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Receive File</title>
+</head>
+<body>
+  <h1>Receive File</h1>
+  <div id="downloadLink"></div>
+
+  <script>
+    const downloadLink = document.getElementById('downloadLink');
+    const ws = new WebSocket('ws://localhost:3000');
+
+    ws.onmessage = (event) => {
+      const blob = new Blob([event.data]);
+      const url = URL.createObjectURL(blob);
+      downloadLink.innerHTML = `<a href="${url}" download="downloaded_file">Download Received File</a>`;
+    };
+  </script>
+</body>
+</html>

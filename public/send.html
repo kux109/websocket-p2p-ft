@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Send File</title>
+</head>
+<body>
+  <h1>Send File</h1>
+  <input type="file" id="fileInput">
+  <button id="sendButton">Send File</button>
+
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    const sendButton = document.getElementById('sendButton');
+    const ws = new WebSocket('ws://localhost:3000');
+
+    sendButton.addEventListener('click', () => {
+      const file = fileInput.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          ws.send(event.target.result);
+        };
+        reader.readAsArrayBuffer(file);
+      }
+    });
+  </script>
+</body>
+</html>
