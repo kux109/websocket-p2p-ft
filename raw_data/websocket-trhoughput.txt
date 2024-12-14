@@ -1,0 +1,2 @@
+Duration: 24.683243989944458 seconds, Total bytes: 178717793, Throughput: 57923599.693073295 bps
+WebSocket Throughput: 57923599.693073295 bps

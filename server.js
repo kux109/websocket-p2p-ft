@@ -5,7 +5,10 @@ const path = require('path');
 
 const app = express();
 const server = http.createServer(app);
-const wss = new WebSocket.Server({ server });
+const wss = new WebSocket.Server({ 
+  server,
+  maxPayload: 50 * 1024 * 1024 * 10 // Set max payload size to 500 MB
+});
 
 app.use(express.static(path.join(__dirname, 'public')));
 

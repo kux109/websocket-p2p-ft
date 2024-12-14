@@ -1,0 +1,3 @@
+Packet 3570 TCP flags: 0x0010
+Sent packets: 1, Retransmitted packets: 0
+WebSocket Packet Loss Rate: 0.00%

@@ -1,0 +1,2 @@
+TCP Latencies: [0.048160552978515625]
+Average Latency: 0.048160552978515625 ms
